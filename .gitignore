@@ -1,0 +1,7 @@
+.ionide/
+node_modules/
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
