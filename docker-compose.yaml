@@ -1,0 +1,16 @@
+version: "3"
+services:
+  giraffe-api:
+    image: giraffe-test
+    ports:
+      - 5000:80
+    environment:
+      - POSTGRES_PORT=5433
+      - POSTGRES_HOST=host.docker.internal
+
+  testdb:
+    image: testdb
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres

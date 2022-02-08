@@ -1,11 +1,25 @@
 module Db
 
 open Npgsql.FSharp
-
-let connectionString =
-    "Host=localhost; Database=postgres; Username=postgres; Password=postgres;"
+open System
 
 type Test = { Id: int; Name: string }
+
+let connectionString =
+    let host =
+        Env.tryString "POSTGRES_HOST"
+        |> Env.withDefault "localhost"
+
+    let port =
+        Env.tryInt "POSTGRES_PORT"
+        |> Env.withDefault 5432
+
+    Sql.host host
+    |> Sql.database "postgres"
+    |> Sql.username "postgres"
+    |> Sql.password "postgres"
+    |> Sql.port port
+    |> Sql.formatConnectionString
 
 let getAll () =
     connectionString
