@@ -1,6 +1,6 @@
 # About
 
-A minimal API created with Giraffe that fetches some thingamabobs form a PostgreSQL database.
+A minimal API created with Giraffe that fetches some thingamabobs from a PostgreSQL database.
 
 # Dockerization
 
